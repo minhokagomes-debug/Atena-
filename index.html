@@ -1,13 +1,342 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
   <head>
+    <!-- Meta tags essenciais -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Título e descrição -->
+    <title>ATENA Ω - Neural Evolution Interface</title>
+    <meta name="title" content="ATENA Ω - Neural Evolution Interface" />
+    <meta name="description" content="Interface neural para ATENA Ω - Sistema de evolução contínua com aprendizado profundo, memória contextual e geração autônoma de código." />
+    <meta name="keywords" content="AI, neural network, evolution, machine learning, autonomous code, digital organism, ATENA" />
+    <meta name="author" content="ATENA Ω Core" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://atena-omega.app/" />
+    <meta property="og:title" content="ATENA Ω - Neural Evolution Interface" />
+    <meta property="og:description" content="Interface neural para ATENA Ω - Sistema de evolução contínua com aprendizado profundo" />
+    <meta property="og:image" content="https://atena-omega.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://atena-omega.app/" />
+    <meta name="twitter:title" content="ATENA Ω - Neural Evolution Interface" />
+    <meta name="twitter:description" content="Interface neural para ATENA Ω - Sistema de evolução contínua com aprendizado profundo" />
+    <meta name="twitter:image" content="https://atena-omega.app/twitter-image.png" />
+    
+    <!-- Tema e cores -->
+    <meta name="theme-color" content="#0a0a0f" />
+    <meta name="msapplication-TileColor" content="#0a0a0f" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <!-- Manifest para PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Ícones -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Pré-conexões para otimização -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.atena-omega.app" />
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <!-- Estilos críticos inline para evitar FOUC -->
+    <style>
+      /* Reset e estilos base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #0a0a0f;
+        color: #e0e0e0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+      
+      #root {
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+      }
+      
+      /* Loading state inicial */
+      .initial-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2a 100%);
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .initial-loading.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .neural-loader {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 24px;
+        position: relative;
+      }
+      
+      .neural-ring {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #00ff88;
+        border-bottom-color: #0066ff;
+        animation: spin 2s linear infinite;
+      }
+      
+      .neural-ring:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        top: 10px;
+        left: 10px;
+        border-top-color: #ff0066;
+        border-bottom-color: #ffaa00;
+        animation: spin 1.5s linear reverse infinite;
+      }
+      
+      .neural-ring:nth-child(3) {
+        width: 40px;
+        height: 40px;
+        top: 20px;
+        left: 20px;
+        border-top-color: #00ccff;
+        border-bottom-color: #aa00ff;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .neural-text {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #00ff88;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      
+      .neural-status {
+        margin-top: 16px;
+        font-size: 12px;
+        color: #666;
+        font-family: 'JetBrains Mono', monospace;
+      }
+    </style>
+    
+    <!-- Detecção de tema escuro/claro -->
+    <script>
+      (function() {
+        // Detectar preferência de tema do sistema
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const storedTheme = localStorage.getItem('theme');
+        
+        if (storedTheme === 'light' || (!storedTheme && !prefersDark)) {
+          document.documentElement.classList.add('light-theme');
+          document.documentElement.style.colorScheme = 'light';
+        } else {
+          document.documentElement.classList.add('dark-theme');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+        
+        // Configurar viewport height para mobile
+        const setVH = () => {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+        
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        setVH();
+      })();
+    </script>
   </head>
+  
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading inicial que será substituído pelo React -->
+      <div class="initial-loading" id="initial-loading">
+        <div class="neural-loader">
+          <div class="neural-ring"></div>
+          <div class="neural-ring"></div>
+          <div class="neural-ring"></div>
+        </div>
+        <div class="neural-text">ATENA Ω</div>
+        <div class="neural-status" id="loading-status">Inicializando núcleo neural...</div>
+      </div>
+    </div>
+    
+    <!-- Injeção de configuração -->
+    <script>
+      window.__ATENA_CONFIG__ = {
+        VERSION: '1.0.0',
+        BUILD_TIME: '2026-03-09T10:30:00Z',
+        ENVIRONMENT: '%NODE_ENV%',
+        API_URL: '%VITE_API_URL%',
+        WS_URL: '%VITE_WS_URL%',
+        FEATURES: {
+          DARK_MODE: true,
+          ANIMATIONS: true,
+          DEBUG_MODE: '%VITE_DEBUG_MODE%' === 'true',
+          ANALYTICS: '%VITE_ENABLE_ANALYTICS%' === 'true'
+        }
+      };
+    </script>
+    
+    <!-- Service Worker para PWA (em produção) -->
+    <script>
+      if ('serviceWorker' in navigator && window.__ATENA_CONFIG__.ENVIRONMENT === 'production') {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registrado com sucesso:', registration.scope);
+          }).catch(error => {
+            console.log('Falha ao registrar ServiceWorker:', error);
+          });
+        });
+      }
+    </script>
+    
+    <!-- Analytics (opcional, apenas em produção) -->
+    <script>
+      if (window.__ATENA_CONFIG__.ENVIRONMENT === 'production' && window.__ATENA_CONFIG__.FEATURES.ANALYTICS) {
+        // Código de analytics aqui
+        console.log('Analytics enabled');
+      }
+    </script>
+    
+    <!-- Módulo principal -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Remover loading quando React estiver pronto -->
+    <script>
+      (function() {
+        // Remover loading quando o React montar
+        const removeLoading = () => {
+          const loading = document.getElementById('initial-loading');
+          if (loading) {
+            loading.classList.add('fade-out');
+            setTimeout(() => {
+              if (loading && loading.parentNode) {
+                loading.parentNode.removeChild(loading);
+              }
+            }, 500);
+          }
+        };
+        
+        // Atualizar status do loading
+        window.updateLoadingStatus = (status) => {
+          const statusEl = document.getElementById('loading-status');
+          if (statusEl) {
+            statusEl.textContent = status;
+          }
+        };
+        
+        // Escutar evento do React
+        document.addEventListener('react-mounted', removeLoading);
+        
+        // Fallback: remover após 5 segundos
+        setTimeout(() => {
+          if (document.getElementById('initial-loading')) {
+            removeLoading();
+          }
+        }, 5000);
+      })();
+    </script>
+    
+    <!-- Fallback para navegadores sem suporte a módulos -->
+    <noscript>
+      <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0a0a0f; display: flex; align-items: center; justify-content: center; z-index: 10000;">
+        <div style="text-align: center; padding: 20px;">
+          <h1 style="color: #00ff88; margin-bottom: 16px;">ATENA Ω</h1>
+          <p style="color: #e0e0e0; margin-bottom: 24px;">JavaScript está desabilitado ou não é suportado.</p>
+          <p style="color: #666; font-size: 14px;">Por favor, habilite JavaScript para continuar.</p>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- Estrutura de dados estruturados para SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "ATENA Ω - Neural Evolution Interface",
+        "description": "Interface neural para ATENA Ω - Sistema de evolução contínua com aprendizado profundo, memória contextual e geração autônoma de código.",
+        "url": "https://atena-omega.app",
+        "applicationCategory": "AIApplication",
+        "operatingSystem": "Web",
+        "creator": {
+          "@type": "Organization",
+          "name": "ATENA Ω Core",
+          "url": "https://atena-omega.app"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        },
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "softwareVersion": "1.0.0",
+        "releaseDate": "2026-03-09",
+        "featureList": [
+          "Neural Evolution Interface",
+          "Real-time Code Generation",
+          "Autonomous Task Management",
+          "Neural Memory System",
+          "WebSocket Live Updates"
+        ]
+      }
+    </script>
   </body>
-</html>
-
+        </html>
