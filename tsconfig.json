@@ -1,198 +1,27 @@
 {
   "compilerOptions": {
-    // ============================================
-    // ECMASCRIPT TARGET & MODULES
-    // ============================================
     "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "lib": ["ES2023", "DOM", "DOM.Iterable", "WebWorker"],
-    "allowJs": true,
-    "checkJs": false,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    
-    // ============================================
-    // BUILD & OUTPUT
-    // ============================================
-    "noEmit": true,
-    "outDir": "./dist",
-    "rootDir": "./",
-    "baseUrl": ".",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "inlineSources": false,
-    "removeComments": false,
-    "newLine": "lf",
-    
-    // ============================================
-    // PATH ALIASES
-    // ============================================
-    "paths": {
-      "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@services/*": ["./src/services/*"],
-      "@store/*": ["./src/store/*"],
-      "@types/*": ["./src/types/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@config/*": ["./src/config/*"],
-      "@atena/*": ["./src/atena/*"],
-      "@api/*": ["./src/api/*"],
-      "@db/*": ["./src/db/*"],
-      "@ws/*": ["./src/websocket/*"],
-      "@test/*": ["./src/test/*"]
-    },
-    
-    "rootDirs": ["./src", "./test"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
-    
-    // ============================================
-    // MODULE RESOLUTION
-    // ============================================
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "allowUmdGlobalAccess": false,
-    "moduleDetection": "force",
-    "isolatedModules": true,
-    "preserveSymlinks": false,
-    
-    // ============================================
-    // TYPE CHECKING
-    // ============================================
-    "strict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noUncheckedIndexedAccess": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noFallthroughCasesInSwitch": true,
-    "exactOptionalPropertyTypes": false,
-    "useUnknownInCatchVariables": true,
-    "alwaysStrict": true,
-    
-    // ============================================
-    // DECORATORS & EXPERIMENTAL
-    // ============================================
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "useDefineForClassFields": false,
-    
-    // ============================================
-    // JAVASCRIPT SUPPORT
-    // ============================================
-    "allowJs": true,
-    "checkJs": false,
-    "maxNodeModuleJsDepth": 1,
-    
-    // ============================================
-    // COMPATIBILITY
-    // ============================================
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    
-    // ============================================
-    // TYPES
-    // ============================================
-    "types": [
-      "node",
-      "react",
-      "react-dom",
-      "vite/client",
-      "jest",
-      "node",
-      "express",
-      "ws",
-      "better-sqlite3"
-    ]
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
-  
-  // ============================================
-  // FILES TO INCLUDE/EXCLUDE
-  // ============================================
-  "include": [
-    "src/**/*",
-    "test/**/*",
-    "*.ts",
-    "*.js",
-    "*.mjs",
-    "*.cjs",
-    "*.tsx",
-    "*.jsx",
-    "vite.config.ts",
-    "vitest.config.ts",
-    "playwright.config.ts",
-    "tailwind.config.ts",
-    "postcss.config.js"
-  ],
-  
-  "exclude": [
-    "node_modules",
-    "dist",
-    "build",
-    "coverage",
-    ".git",
-    ".vscode",
-    ".idea",
-    "temp",
-    "tmp",
-    "logs",
-    "modules/**/*",
-    "backup/**/*",
-    "backups/**/*",
-    "data/**/*",
-    "*.db",
-    "*.db-journal",
-    "*.log"
-  ],
-  
-  "files": [],
-  
-  // ============================================
-  // REFERENCES
-  // ============================================
-  "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "./tsconfig.test.json" }
-  ],
-  
-  // ============================================
-  // COMPILER PLUGINS
-  // ============================================
-  "plugins": [
-    { "transform": "typescript-transform-paths" },
-    { "transform": "typescript-transform-paths", "afterDeclarations": true },
-    { "name": "typescript-plugin-css-modules" }
-  ],
-  
-  // ============================================
-  // TSCONFIG NODE OVERRIDES
-  // ============================================
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node",
-    "transpileOnly": true,
-    "files": true,
-    "compilerOptions": {
-      "module": "ESNext",
-      "moduleResolution": "node"
-    }
-  }
-  }
+  "exclude": ["modules", "node_modules", "dist"]
+}
