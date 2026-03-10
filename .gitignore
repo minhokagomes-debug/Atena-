@@ -1,8 +1,961 @@
+# ============================================
+# ATENA Ω - GITIGNORE
+# ============================================
+
+# ============================================
+# DEPENDÊNCIAS
+# ============================================
+
+## Node
 node_modules/
-build/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+lerna-debug.log*
+
+## Package manager lock files (choose one and commit it)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+## Bun
+bun.lockb
+.bun
+bunfig.toml
+
+## Deno
+deno.lock
+
+# ============================================
+# BUILD OUTPUTS
+# ============================================
+
+## Build directories
 dist/
+build/
+out/
+output/
+release/
+target/
+*.tsbuildinfo
+
+## Vite
+dist-ssr/
+*.local
+
+## Webpack
+public/dist/
+assets/
+
+## Next.js
+.next/
+out/
+build/
+
+## Nuxt
+.nuxt/
+dist/
+
+## Gatsby
+public/
+.cache/
+
+## Vue
+dist/
+dist-ssr/
+
+## Angular
+dist/
+tmp/
+out-tsc/
+
+## Svelte
+build/
+.svelte-kit/
+
+## Remix
+build/
+public/build/
+
+## Eleventy
+_site/
+
+## Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+## Hugo
+/public/
+/resources/_gen/
+
+## Hexo
+public/
+db.json
+
+## Parcel
+.parcel-cache/
+
+## Snowpack
+build/
+snowpack.d.ts
+
+## WMR
+.wmr/
+
+## Astro
+dist/
+.astro/
+
+## Solid
+.netlify/
+dist/
+
+## Qwik
+dist/
+server/
+
+# ============================================
+# TESTING & COVERAGE
+# ============================================
+
+## Coverage directories
 coverage/
-.DS_Store
-*.log
-.env*
+.nyc_output/
+.nycrc
+coverage.json
+*.lcov
+*.lcov.info
+
+## Test reports
+test-results/
+junit.xml
+test-report.xml
+test-results.json
+
+## Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+## Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+cypress/support/
+
+## Jest
+jest-cache/
+jest-coverage/
+
+## Vitest
+vitest-cache/
+vitest-coverage/
+
+## Karma
+karma-debug.log
+karma-results/
+
+## Mocha
+mocha.opts
+mocha-report.json
+
+## Jasmine
+jasmine.json
+
+# ============================================
+# ENVIRONMENT FILES
+# ============================================
+
+## Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+.env.staging
+.env.prod
+.env.dev
+
+## Keep example env files
 !.env.example
+!.env.template
+!.env.sample
+
+## Config files with secrets
+*.pem
+*.key
+*.crt
+*.p12
+secrets/
+credentials.json
+service-account.json
+firebase.json
+
+## Docker secrets
+docker/secrets/
+docker-compose.override.yml
+docker-compose.prod.yml
+*.dockerfile.local
+
+# ============================================
+# IDE & EDITORS
+# ============================================
+
+## VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.history/
+
+## JetBrains (IntelliJ, WebStorm, etc)
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+atlassian-ide-plugin.xml
+
+## Vim
+*.swp
+*.swo
+*~
+._*
+Session.vim
+.vimrc
+.netrwhist
+tags
+
+## Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+## Sublime Text
+*.sublime-workspace
+*.sublime-project
+.sublime-cache/
+
+## Atom
+.atom/
+.atom-config.cson
+
+## Eclipse
+.project
+.classpath
+.settings/
+.metadata/
+bin/
+*.prefs
+
+## Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+
+## Kate
+.kate-session
+.kateconfig
+
+## NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# ============================================
+# OS GENERATED FILES
+# ============================================
+
+## macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+Icon?
+._*
+*.DS_Store
+
+## Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# LOGS & DATABASES
+# ============================================
+
+## Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+debug.log
+error.log
+access.log
+*.log.gz
+*.log.zip
+
+## Databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+*.sql
+*.sql.gz
+*.dump
+*.dmp
+*.mdb
+*.accdb
+
+## Database directories
+data/
+database/
+db/
+mongodb/
+postgres-data/
+mysql-data/
+redis-data/
+
+## Backups
+*.bak
+*.backup
+*.bck
+*.dump
+*.dmp
+*.sql.bak
+backup/
+backups/
+
+## Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# RUNTIME DATA
+# ============================================
+
+## Cache directories
+.cache/
+.cache-loader/
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+.npm/
+.node-gyp/
+
+## Uploads
+uploads/
+public/uploads/
+storage/
+public/storage/
+media/
+public/media/
+images/
+public/images/
+
+## Sessions
+sessions/
+session/
+
+## PID files
+*.pid
+*.pid.lock
+
+## Heap snapshots
+*.heapsnapshot
+*.heaptimeline
+*.cpuprofile
+
+# ============================================
+# DEPENDENCY DIRECTORIES
+# ============================================
+
+## Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.hypothesis/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+## Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+*.bundle
+*.so
+*.o
+*.a
+mkmf.log
+.rvmrc
+
+## PHP
+vendor/
+composer.lock
+composer.phar
+.phpunit.result.cache
+.php_cs.cache
+.php_cs
+.phpintel
+
+## Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+## Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+## Swift
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcshareddata/xcschemes/
+*.xcworkspace/xcshareddata/xcschemes/
+Podfile.lock
+
+## Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+## Scala
+*.class
+*.log
+target/
+out/
+
+## Kotlin
+build/
+out/
+
+## C#
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pidb
+*.userprefs
+.vs/
+obj/
+bin/
+
+## C++
+*.dSYM/
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.tlb
+*.tlh
+*.temp
+*.tmp
+
+# ============================================
+# FRAMEWORK SPECIFIC
+# ============================================
+
+## React Native
+ios/Pods/
+ios/Podfile.lock
+android/.gradle/
+android/app/build/
+android/app/debug/
+android/app/release/
+
+## Flutter
+.dart_tool/
+.packages
+build/
+flutter_*.png
+.dart_tool/
+*.iml
+.flutter-plugins
+.flutter-plugins-dependencies
+ios/.generated/
+ios/Flutter/Generated.xcconfig
+ios/Runner/GeneratedPluginRegistrant.*
+android/local.properties
+android/key.properties
+*.jks
+*.keystore
+google-services.json
+GoogleService-Info.plist
+
+## Electron
+out/
+dist/
+release/
+electron-builder.yaml
+
+## Tauri
+src-tauri/target/
+src-tauri/gen/
+
+## Capacitor
+capacitor.config.json
+android/
+ios/
+
+## Cordova
+platforms/
+plugins/
+merges/
+
+# ============================================
+# PWA & SERVICE WORKERS
+# ============================================
+
+## Service workers
+sw.js
+sw.js.map
+workbox-*.js
+workbox-*.js.map
+precache-*.js
+precache-*.js.map
+
+## PWA icons
+public/icons/
+public/icon-*.png
+public/splash-*.png
+
+## Web manifests
+manifest.json
+manifest.webmanifest
+
+# ============================================
+# DOCUMENTATION
+# ============================================
+
+## API docs
+docs/api/
+apidoc/
+swagger/
+openapi/
+
+## Generated docs
+doc/
+documentation/
+typedoc/
+jsdoc/
+
+## Wiki
+wiki/
+*.wiki
+
+# ============================================
+# SECURITY
+# ============================================
+
+## Certificates
+*.crt
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.cer
+*.der
+
+## SSH
+*.pub
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+
+## GPG
+*.gpg
+*.asc
+private-key.asc
+public-key.asc
+
+## Tokens
+*.token
+*.apitoken
+*.secret
+secrets/
+keys/
+
+# ============================================
+# CI/CD
+# ============================================
+
+## GitHub Actions
+.github/workflows/*.yml
+!.github/workflows/ci.yml
+
+## GitLab CI
+.gitlab-ci.yml
+!.gitlab-ci.yml.example
+
+## Jenkins
+jenkins/
+jenkins_home/
+
+## Travis CI
+.travis.yml
+!.travis.yml.example
+
+## Circle CI
+.circleci/
+!.circleci/config.yml.example
+
+## Azure DevOps
+.azure/
+azure-pipelines.yml
+
+## Netlify
+.netlify/
+netlify.toml
+
+## Vercel
+.vercel/
+vercel.json
+
+## Heroku
+heroku.yml
+Procfile
+
+## Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.prod.yml
+*.dockerfile.local
+
+## Kubernetes
+k8s/
+*.kubeconfig
+*.kube
+
+# ============================================
+# MISC
+# ============================================
+
+## Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.bz2
+*.gz
+*.tgz
+
+## Media
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.ico
+*.svg
+*.webp
+*.woff
+*.woff2
+*.eot
+*.ttf
+*.otf
+
+## PDFs
+*.pdf
+*.epub
+*.mobi
+
+## Office
+*.doc
+*.docx
+*.xls
+*.xlsx
+*.ppt
+*.pptx
+
+## Virtual environments
+venv/
+env/
+.venv/
+.env/
+virtualenv/
+
+## Project specific
+*.code-workspace
+.projectile
+.tern-project
+.idea/
+*.swp
+*.swo
+*~
+
+## Temporary files
+*.tmp
+*.temp
+*.cache
+*.lock
+*.part
+*.crdownload
+
+## Debug files
+*.pdb
+*.idb
+*.pdb
+*.dbg
+*.sym
+
+## Profiling
+*.prof
+*.gcda
+*.gcno
+*.gcov
+*.callgrind
+*.cachegrind
+
+## Editor backups
+*~
+*.bak
+*.old
+*.orig
+*.backup
+
+## IDE settings
+*.vscode/
+*.idea/
+*.project
+*.classpath
+*.settings/
+
+# ============================================
+# CUSTOM ATENA Ω PATTERNS
+# ============================================
+
+## ATENA specific
+modules/
+backup/
+backups/
+evolutions/
+resultados/
+fila/
+conhecimento/
+
+## Database
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+database/
+
+## Logs
+logs/
+*.log
+atena.log
+neural.log
+
+## Cache
+.cache/
+temp/
+tmp/
+
+## Uploads
+uploads/
+public/uploads/
+
+## User data
+.userdata
+.userdata.json
+user-preferences.json
+
+## Neural data
+neural-state.json
+neural-memory.json
+neural-patterns.json
+
+## Generated modules
+modules/ativos/
+modules/experimentais/
+modules/aprendidos/
+modules/processando/
+
+## Generated knowledge
+conhecimento/github/
+conhecimento/wikipedia/
+conhecimento/arxiv/
+conhecimento/processado/
+
+## Evolution data
+evolutions/sucesso/
+evolutions/experimental/
+evolutions/historico/
+evolutions/processando/
+
+## Queue files
+fila/prioridade_alta/
+fila/prioridade_media/
+fila/prioridade_baixa/
+
+## Results
+resultados/sucesso/
+resultados/falha/
+resultados/parcial/
+
+## Backup directories
+backup/codigos/
+backup/estados/
+backup/por_sessao/
+
+## Documentation
+docs/wiki/
+docs/exemplos/
+docs/tutoriais/
+docs/metricas/
+
+## Monitoring
+monitoring/metrics/
+monitoring/alerts/
+monitoring/logs/
+
+# ============================================
+# FINAL SAFEGUARDS
+# ============================================
+
+## Always ignore these
+*.local
+*.development
+*.production
+*.staging
+*.test
+*.example
+*.sample
+*.template
+*.dist
+*.orig
+*.old
+*.backup
+*.bak
+
+## Never ignore these (examples)
+!.env.example
+!.env.template
+!.env.sample
+!.gitkeep
+!.gitattributes
+!.editorconfig
+!.eslintrc.js
+!.prettierrc
+!.stylelintrc
+!.browserslistrc
